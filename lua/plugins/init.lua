@@ -4,6 +4,7 @@ local plugins = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
 	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
 
 	use "p00f/clangd_extensions.nvim"
 
@@ -14,6 +15,8 @@ local plugins = require("packer").startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
+
+	use "mg979/vim-visual-multi"
 
 	use "hrsh7th/nvim-cmp"
 	use 'hrsh7th/cmp-nvim-lsp'

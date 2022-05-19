@@ -3,6 +3,10 @@ _G.lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabiliti
 
 
 -- language servers
+
+
+require("nvim-lsp-installer").setup {  automatic_installation = true}
+
 --#region c++/c
 require("clangd_extensions").setup {
 	server = {
@@ -17,6 +21,11 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require 'lspconfig'.sumneko_lua.setup {
+	server = {
+		on_attach = lsp_on_attach,
+		capabilities = lsp_capabilities
+	},
+
 	settings = {
 		Lua = {
 			runtime = {
