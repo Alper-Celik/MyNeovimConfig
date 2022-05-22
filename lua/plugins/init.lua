@@ -1,13 +1,24 @@
 require "plugins.GetPacker"
 
 local plugins = require("packer").startup(function(use)
+	--packge manager
 	use "wbthomason/packer.nvim"
 
+	--#region language support
 	use "neovim/nvim-lspconfig"
 	use "williamboman/nvim-lsp-installer"
 
+	-- C C++
 	use "p00f/clangd_extensions.nvim"
+	
 
+	-- flutter dart
+	use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+	use "dart-lang/dart-vim-plugin"
+
+	--#endregion
+
+	--file explorer
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
@@ -16,8 +27,13 @@ local plugins = require("packer").startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 
+	--theme
+	use 'Mofiqul/vscode.nvim'
+
+	--multi cursor
 	use "mg979/vim-visual-multi"
 
+	--snippit etc.
 	use "hrsh7th/nvim-cmp"
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'saadparwaiz1/cmp_luasnip'

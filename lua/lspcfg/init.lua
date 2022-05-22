@@ -6,7 +6,7 @@ local on_attach = require "lspcfg.keybindings"
 -- language servers
 
 
-require("nvim-lsp-installer").setup {  automatic_installation = true}
+require("nvim-lsp-installer").setup { automatic_installation = true }
 
 --#region c++/c
 require("clangd_extensions").setup {
@@ -16,14 +16,21 @@ require("clangd_extensions").setup {
 	}
 }
 --#endregion
+--#region flutter dart
+require("flutter-tools").setup {
+	widget_guides = {
+		enabled = false,
+	},
+}
+--#endregion
 --#region lua
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require 'lspconfig'.sumneko_lua.setup {
-		on_attach = on_attach,
-		capabilities = lsp_capabilities,
+	on_attach = on_attach,
+	capabilities = lsp_capabilities,
 
 	settings = {
 		Lua = {
