@@ -1,6 +1,7 @@
-_G.lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
-_G.lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 
+local on_attach = require "lspcfg.keybindings"
 
 -- language servers
 
@@ -10,7 +11,7 @@ require("nvim-lsp-installer").setup {  automatic_installation = true}
 --#region c++/c
 require("clangd_extensions").setup {
 	server = {
-		on_attach = lsp_on_attach,
+		on_attach = on_attach,
 		capabilities = lsp_capabilities
 	}
 }
@@ -21,10 +22,8 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require 'lspconfig'.sumneko_lua.setup {
-	server = {
-		on_attach = lsp_on_attach,
-		capabilities = lsp_capabilities
-	},
+		on_attach = on_attach,
+		capabilities = lsp_capabilities,
 
 	settings = {
 		Lua = {
