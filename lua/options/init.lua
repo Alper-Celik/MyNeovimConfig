@@ -11,7 +11,7 @@ set.number = true
 
 --no line numbers in terminal
 vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = "*", callback = function()
-	vim.opt_local.number = false;
+    vim.opt_local.number = false;
 end })
 
 --remove preview window
