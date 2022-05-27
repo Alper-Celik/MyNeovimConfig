@@ -4,7 +4,7 @@ lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 local on_attach = require "language_support.keybindings"
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "cpp", "dart", "lua", "cmake", "json" },
+    ensure_installed = { "c", "cpp", "dart", "lua", "cmake", "json", "python" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -80,7 +80,8 @@ require 'lspconfig'.cmake.setup { capabilities = lsp_capabilities, on_attach = o
 --json
 require 'lspconfig'.jsonls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
-
+--python
+require 'lspconfig'.pylsp.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 
 

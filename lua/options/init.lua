@@ -17,6 +17,8 @@ end })
 --remove preview window
 set.completeopt:remove("preview")
 
+set.clipboard:append("unnamedplus")
+
 --use whitespaces instead of tabs
 set.expandtab = true
 
