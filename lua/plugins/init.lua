@@ -11,7 +11,8 @@ local plugins = require("packer").startup(function(use)
     -- C C++
     use "p00f/clangd_extensions.nvim"
 
-
+    --terminal helper
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
     -- flutter dart
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -43,21 +44,5 @@ local plugins = require("packer").startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use "L3MON4D3/LuaSnip"
 end)
-
-require("nvim-tree").setup { git = {
-    ignore = false,
-
-}, view = {
-    mappings = {
-        custom_only = false,
-        list = {
-            { key = "<C-E>", action = "close" },
-            { key = "l", action = "edit", action_cb = edit_or_open },
-            { key = "L", action = "vsplit_preview", action_cb = vsplit_preview },
-            { key = "h", action = "close_node" },
-            { key = "H", action = "collapse_all", action_cb = collapse_all }
-        }
-    },
-}, }
 
 return plugins

@@ -23,6 +23,7 @@ vim.keymap.set("t", "<esc><esc>", "<C-\\><C-N>", {})
 vim.keymap.set("n", "<C-e>", ":NvimTreeToggle<CR>", silent)
 
 
+--#region tab bindings
 vim.keymap.set("n", "<C-Tab>", ":tabnext<CR>", silent)
 vim.keymap.set("n", "<C-S-Tab>", ":tabprevious<CR>", silent)
 
@@ -35,3 +36,6 @@ vim.keymap.set("n", "<C-s>h", ":tabprevious<CR>", silent)
 vim.keymap.set("n", "<C-s><C-s>", ":tabnext<CR>", silent)
 vim.keymap.set("n", "<C-s>t", ":tabnew<CR>", silent)
 vim.keymap.set("n", "<C-s>w", ":tabclose<CR>", silent)
+--#endregion
+
+require "keybindings.plugin-bindings"
