@@ -8,6 +8,7 @@ set.wrap = false
 
 --line numbers
 set.number = true
+set.relativenumber =true
 
 --no line numbers in terminal
 vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = "*", callback = function()
