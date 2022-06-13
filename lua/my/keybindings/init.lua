@@ -38,4 +38,4 @@ vim.keymap.set("n", "<C-s>t", ":tabnew<CR>", silent)
 vim.keymap.set("n", "<C-s>w", ":tabclose<CR>", silent)
 --#endregion
 
-require "keybindings.plugin-bindings"
+require((...) .. ".plugin_bindings")

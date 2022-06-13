@@ -1,8 +1,11 @@
-require "plugins.GetPacker"
+require((...) .. ".get_packer")
 
 local plugins = require("packer").startup(function(use)
     --packge manager
     use "wbthomason/packer.nvim"
+
+    --for reload functionality and for some plugins
+    use 'nvim-lua/plenary.nvim'
 
     --#region language support
     use "neovim/nvim-lspconfig"
@@ -18,6 +21,14 @@ local plugins = require("packer").startup(function(use)
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     --#endregion
+
+    --fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+
+    --highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'

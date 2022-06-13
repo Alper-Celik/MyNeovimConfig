@@ -1,7 +1,7 @@
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 
-local on_attach = require "language_support.keybindings"
+local on_attach = require((...) .. ".keybindings")
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "dart", "lua", "cmake", "json", "python" },
