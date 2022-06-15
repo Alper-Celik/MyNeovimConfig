@@ -33,11 +33,14 @@ require "telescope".setup{}
 
 local silent = {silent = true}
 
+vim.keymap.set("n","ft",":Telescope builtin<cr>",silent);
+
 vim.keymap.set("n","ff",":Telescope find_files<cr>",silent);
 vim.keymap.set("n","fs",":Telescope live_grep<cr>",silent);
 
 vim.keymap.set("n","fvb",":Telescope buffers<cr>",silent);
 vim.keymap.set("n","fvh",":Telescope help_tags<cr>",silent);
+vim.keymap.set("n","fvm",":Telescope keymap<cr>",silent);
 
 vim.keymap.set("n","flr",":Telescope lsp_references<cr>",silent);
 vim.keymap.set("n","fls",":Telescope lsp_document_symbols<cr>",silent);
