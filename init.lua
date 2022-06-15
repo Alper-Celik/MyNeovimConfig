@@ -1,9 +1,9 @@
-require "plugins"
+require "my.plugins"
+require("plenary.reload").reload_module("my")
 
-require "themes"
+require "my.themes"
 
-require "commands"
-require "options"
-require "keybindings"
-require "language_support" --depends keybindings
-
+require "my.commands"
+require "my.options"
+require "my.keybindings"
+require "my.language_support" --depends keybindings
