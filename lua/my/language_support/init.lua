@@ -81,7 +81,7 @@ require 'lspconfig'.cmake.setup { capabilities = lsp_capabilities, on_attach = o
 require 'lspconfig'.jsonls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 --python
-require 'lspconfig'.pylsp.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+require 'lspconfig'.pyright.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 --bash
 require 'lspconfig'.bashls.setup { capabilities = lsp_capabilities, on_attach = on_attach }

@@ -1,5 +1,4 @@
 require "my.plugins"
-require("plenary.reload").reload_module("my")
 
 require "my.themes"
 

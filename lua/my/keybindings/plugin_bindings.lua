@@ -29,27 +29,27 @@ require("toggleterm").setup(
     })
 
 --#region telescope
-require "telescope".setup{}
+require "telescope".setup {
+    extensions = {
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+        }
+    }
+}
+require('telescope').load_extension('fzf')
 
-local silent = {silent = true}
+local silent = { silent = true }
 
-vim.keymap.set("n","ft",":Telescope builtin<cr>",silent);
+vim.keymap.set("n", "ft", ":Telescope builtin include_extensions=true<cr>", silent);
 
-vim.keymap.set("n","ff",":Telescope find_files<cr>",silent);
-vim.keymap.set("n","fs",":Telescope live_grep<cr>",silent);
+vim.keymap.set("n", "ff", ":Telescope find_files<cr>", silent);
+vim.keymap.set("n", "fg", ":Telescope live_grep<cr>", silent);
 
-vim.keymap.set("n","fvb",":Telescope buffers<cr>",silent);
-vim.keymap.set("n","fvh",":Telescope help_tags<cr>",silent);
-vim.keymap.set("n","fvm",":Telescope keymap<cr>",silent);
-
-vim.keymap.set("n","flr",":Telescope lsp_references<cr>",silent);
-vim.keymap.set("n","fls",":Telescope lsp_document_symbols<cr>",silent);
-vim.keymap.set("n","flws",":Telescope lsp_workspace_symbols<cr>",silent);
+vim.keymap.set("n", "fs", ":Telescope treesitter<cr>", silent);
 
 
-vim.keymap.set("n","fgc",":Telescope git_commits<cr>",silent);
-vim.keymap.set("n","fgcb",":Telescope git_bcommits<cr>",silent);
-vim.keymap.set("n","fgb",":Telescope git_branches<cr>",silent);
-vim.keymap.set("n","fgs",":Telescope git_status<cr>",silent);
-vim.keymap.set("n","fgt",":Telescope git_stash<cr>",silent);
 --#endregion
