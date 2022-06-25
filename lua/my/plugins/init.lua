@@ -11,8 +11,12 @@ local plugins = require("packer").startup(function(use)
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
 
+    use "numToStr/Comment.nvim"
     -- C C++
     use "p00f/clangd_extensions.nvim"
+
+    --rust
+    use "simrat39/rust-tools.nvim"
 
     --terminal helper
     use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
@@ -27,7 +31,9 @@ local plugins = require("packer").startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use 'stevearc/dressing.nvim'
 
     --highlighting
     use {

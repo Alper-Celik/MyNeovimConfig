@@ -21,26 +21,29 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 
--- language servers
+-- [[Language Servers]]
 
 require("nvim-lsp-installer").setup { automatic_installation = true }
 
---#region c++/c
+--C++/c
 require("clangd_extensions").setup {
     server = {
         on_attach = on_attach,
         capabilities = lsp_capabilities
     }
 }
---#endregion
---#region flutter dart
+
+--Rust
+require('rust-tools').setup({ server = { on_attach = on_attach, capabilities = lsp_capabilities } })
+
+--flutter dart
 require("flutter-tools").setup {
     widget_guides = {
         enabled = false,
     },
     on_attach = on_attach;
 }
---#endregion
+
 --#region lua
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -74,6 +77,7 @@ require 'lspconfig'.sumneko_lua.setup {
     },
 }
 --#endregion
+
 --cmake
 require 'lspconfig'.cmake.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
@@ -87,6 +91,7 @@ require 'lspconfig'.pyright.setup { capabilities = lsp_capabilities, on_attach =
 require 'lspconfig'.bashls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 
+-- [[Snippets]]
 local luasnip = require 'luasnip'
 
 local cmp = require 'cmp'
@@ -128,3 +133,6 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
+
+-- [[Commenting]]
+require('Comment').setup()
