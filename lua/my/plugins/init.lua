@@ -49,6 +49,7 @@ local plugins = require("packer").startup(function(use)
     --fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -58,7 +59,7 @@ local plugins = require("packer").startup(function(use)
     --highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 
     --file explorer

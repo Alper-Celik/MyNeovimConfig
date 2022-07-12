@@ -4,6 +4,8 @@ lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 local on_attach = require((...) .. ".keybindings")
 
 require 'nvim-treesitter.configs'.setup {
+    ensure_installed = { "c", "cpp", "lua","markdown" ,"markdown_inline"},
+    auto_install = true,
 
     highlight = {
         enable = true,
