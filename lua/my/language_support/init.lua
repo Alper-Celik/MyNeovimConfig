@@ -4,11 +4,6 @@ lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 local on_attach = require((...) .. ".keybindings")
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "cpp", "dart", "lua", "cmake", "json", "python" },
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-
 
     highlight = {
         enable = true,

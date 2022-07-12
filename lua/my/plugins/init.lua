@@ -1,3 +1,5 @@
+-- TODO : move simple require("...").setup() functions to packer
+
 require((...) .. ".get_packer")
 
 local plugins = require("packer").startup(function(use)
@@ -24,6 +26,24 @@ local plugins = require("packer").startup(function(use)
     -- flutter dart
     use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+
+    --error list etc...
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {}
+        end
+    }
+
+    -- todo list
+    use {
+        "folke/todo-comments.nvim",
+        requires = { "nvim-lua/plenary.nvim", "folke/trouble.nvim", "kyazdani42/nvim-web-devicons" },
+        config = function()
+            require("todo-comments").setup {}
+        end
+    }
     --#endregion
 
     --fuzzy finder
