@@ -4,7 +4,7 @@ lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 local on_attach = require((...) .. ".keybindings")
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "cpp", "lua","markdown" ,"markdown_inline"},
+    ensure_installed = { "c", "cpp", "lua", "markdown", "markdown_inline" },
     auto_install = true,
 
     highlight = {
@@ -16,6 +16,16 @@ require 'nvim-treesitter.configs'.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+
+    -- extensions
+    rainbow = {
+        enable = true,
+        -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+        max_file_lines = nil, -- Do not enable for files with more than n lines, int
+        colors = {"#f7d700","#da70a8","#179fdb"}, -- table of hex strings
+        termcolors = {"Yellow","Magenta","Blue"} -- table of colour name strings
+    }
 }
 
 -- [[Language Servers]]
