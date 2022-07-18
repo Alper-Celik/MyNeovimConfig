@@ -35,7 +35,9 @@ vim.keymap.set("n", "<C-s>h", ":tabprevious<CR>", silent)
 
 vim.keymap.set("n", "<C-s><C-s>", ":tabnext<CR>", silent)
 vim.keymap.set("n", "<C-s>t", ":tabnew<CR>", silent)
-vim.keymap.set("n", "<C-s>w", ":tabclose<CR>", silent)
+vim.keymap.set("n","<C-s>w", ":tabclose<CR>", silent)
 --#endregion
+
+vim.keymap.set("n","<esc>",":noh<CR>",silent)
 
 require((...) .. ".plugin_bindings")

@@ -18,7 +18,12 @@ end })
 --remove preview window
 set.completeopt:remove("preview")
 
+--clipboard sync
 set.clipboard:append("unnamedplus")
+
+--max 20 items at the same time in complete
+set.pumheight = 20
+
 
 --use whitespaces instead of tabs
 set.expandtab = true

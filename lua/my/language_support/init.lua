@@ -23,8 +23,8 @@ require 'nvim-treesitter.configs'.setup {
         -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
         extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
         max_file_lines = nil, -- Do not enable for files with more than n lines, int
-        colors = {"#f7d700","#da70a8","#179fdb"}, -- table of hex strings
-        termcolors = {"Yellow","Magenta","Blue"} -- table of colour name strings
+        colors = { "#f7d700", "#da70a8", "#179fdb" }, -- table of hex strings
+        termcolors = { "Yellow", "Magenta", "Blue" } -- table of colour name strings
     }
 }
 
@@ -139,7 +139,32 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
     },
+    view = {
+        entries = "custom"
+    }, window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    formatting = {
+        format = function(_, vim_item)
+            --from https://github.com/hrsh7th/nvim-cmp/issues/980#issuecomment-1121773499
+            local MAX_LABEL_WIDTH = 50
+            local MIN_LABEL_WIDTH = 50
+            local ELLIPSIS_CHAR = " "
+            local label = vim_item.abbr
+            local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+            if truncated_label ~= label then
+                vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+            elseif string.len(label) < MIN_LABEL_WIDTH then
+                local padding = string.rep(' ', MIN_LABEL_WIDTH - string.len(label))
+                vim_item.abbr = label .. padding
+            end
+            return vim_item
+        end,
+
+    },
 }
+
 
 -- [[Commenting]]
 require('Comment').setup()
