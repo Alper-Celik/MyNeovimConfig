@@ -9,11 +9,20 @@ local plugins = require("packer").startup(function(use)
     --for reload functionality and for some plugins
     use 'nvim-lua/plenary.nvim'
 
-    --#region language support
-    use "neovim/nvim-lspconfig"
-    use "williamboman/nvim-lsp-installer"
+    --debugging support
+    use "mfussenegger/nvim-dap"
 
+    --#region language support
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+
+    --comment manager
     use "numToStr/Comment.nvim"
+
+
     -- C C++
     use "p00f/clangd_extensions.nvim"
 
@@ -54,6 +63,8 @@ local plugins = require("packer").startup(function(use)
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim',
         run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+    -- fancyer vim.ui interfaces
     use 'stevearc/dressing.nvim'
 
     --highlighting

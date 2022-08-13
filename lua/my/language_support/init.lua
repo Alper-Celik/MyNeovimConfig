@@ -29,8 +29,8 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- [[Language Servers]]
-
-require("nvim-lsp-installer").setup { automatic_installation = true }
+require("mason").setup()
+require("mason-lspconfig").setup { automatic_installation = true }
 
 --C++/c
 require("clangd_extensions").setup {
@@ -92,7 +92,7 @@ require 'lspconfig'.cmake.setup { capabilities = lsp_capabilities, on_attach = o
 require 'lspconfig'.jsonls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 --python
-require 'lspconfig'.pyright.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+require 'lspconfig'.pylsp.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
 --bash
 require 'lspconfig'.bashls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
@@ -142,8 +142,8 @@ cmp.setup {
     view = {
         entries = "custom"
     }, window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
     },
     formatting = {
         format = function(_, vim_item)

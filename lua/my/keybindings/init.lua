@@ -41,3 +41,4 @@ vim.keymap.set("n","<C-s>w", ":tabclose<CR>", silent)
 vim.keymap.set("n","<esc>",":noh<CR>",silent)
 
 require((...) .. ".plugin_bindings")
+require((...) .. ".lsp_bindings")
