@@ -10,3 +10,8 @@ require "my.keybindings"
 require "my.language_support" --depends keybindings
 require "my.debugging_support"
 
+vim.cmd([[
+if exists("g:neovide")
+    let g:neovide_cursor_animation_length=0
+endif
+]])

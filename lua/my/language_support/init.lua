@@ -40,7 +40,7 @@ require("clangd_extensions").setup {
     }
 }
 
---Rust
+
 require('rust-tools').setup({ server = { on_attach = on_attach, capabilities = lsp_capabilities } })
 
 --flutter dart
@@ -97,6 +97,9 @@ require 'lspconfig'.pylsp.setup { capabilities = lsp_capabilities, on_attach = o
 --bash
 require 'lspconfig'.bashls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
 
+--latex
+vim.g['tex_flavor'] = 'latex'
+require'lspconfig'.texlab.setup{}
 
 -- [[Snippets]]
 local luasnip = require 'luasnip'
@@ -142,8 +145,10 @@ cmp.setup {
     view = {
         entries = "custom"
     }, window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+
+        
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     formatting = {
         format = function(_, vim_item)
