@@ -36,7 +36,7 @@ require("mason-lspconfig").setup { automatic_installation = true }
 require("clangd_extensions").setup {
     server = {
         on_attach = on_attach,
-        capabilities = lsp_capabilities
+        capabilities = lsp_capabilities,
     }
 }
 
@@ -85,21 +85,18 @@ require 'lspconfig'.sumneko_lua.setup {
 }
 --#endregion
 
---cmake
-require 'lspconfig'.cmake.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+--generic
 
---json
-require 'lspconfig'.jsonls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+local language_servers = { "cmake", "jsonls", "pylsp", "bashls", "texlab", "eslint", "html", "cssls" }
 
---python
-require 'lspconfig'.pylsp.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+for _, value in pairs(language_servers) do
 
---bash
-require 'lspconfig'.bashls.setup { capabilities = lsp_capabilities, on_attach = on_attach }
+    require 'lspconfig'[value].setup { capabilities = lsp_capabilities, on_attach = on_attach }
+end
+
 
 --latex
 vim.g['tex_flavor'] = 'latex'
-require'lspconfig'.texlab.setup{}
 
 -- [[Snippets]]
 local luasnip = require 'luasnip'
@@ -146,7 +143,7 @@ cmp.setup {
         entries = "custom"
     }, window = {
 
-        
+
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
