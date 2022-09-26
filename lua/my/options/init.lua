@@ -4,7 +4,7 @@ local set = vim.opt
 set.mouse = "a"
 
 --no wrap
-set.wrap = false
+-- set.wrap = false
 
 --line numbers
 set.number = true

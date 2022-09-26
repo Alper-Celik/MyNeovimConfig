@@ -5,7 +5,7 @@ local on_attach = require((...) .. ".keybindings")
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "cpp", "lua", "markdown", "markdown_inline" },
-    auto_install = true,
+    -- auto_install = true,
 
     highlight = {
         enable = true,
@@ -14,7 +14,7 @@ require 'nvim-treesitter.configs'.setup {
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = {"cmake"},
     },
 
     -- extensions
@@ -37,6 +37,7 @@ require("clangd_extensions").setup {
     server = {
         on_attach = on_attach,
         capabilities = lsp_capabilities,
+        cmd = {"clangd","--header-insertion=never"}
     }
 }
 
@@ -87,7 +88,7 @@ require 'lspconfig'.sumneko_lua.setup {
 
 --generic
 
-local language_servers = { "cmake", "jsonls", "pylsp", "bashls", "texlab", "eslint", "html", "cssls" }
+local language_servers = { "cmake", "jsonls", "pyright", "bashls", "texlab", "eslint", "html", "cssls" }
 
 for _, value in pairs(language_servers) do
 

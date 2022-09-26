@@ -73,7 +73,7 @@ local plugins = require("packer").startup(function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
     use "p00f/nvim-ts-rainbow"
-
+    
     --file explorer
     use {
         'kyazdani42/nvim-tree.lua',
