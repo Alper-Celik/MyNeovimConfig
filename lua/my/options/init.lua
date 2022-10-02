@@ -8,12 +8,15 @@ set.mouse = "a"
 
 --line numbers
 set.number = true
-set.relativenumber =true
+set.relativenumber = true
 
 --no line numbers in terminal
-vim.api.nvim_create_autocmd({ "TermOpen" }, { pattern = "*", callback = function()
-    vim.opt_local.number = false;
-end })
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.number = false
+	end,
+})
 
 --remove preview window
 set.completeopt:remove("preview")
@@ -24,7 +27,6 @@ set.clipboard:append("unnamedplus")
 --max 20 items at the same time in complete
 set.pumheight = 20
 
-
 --use whitespaces instead of tabs
 set.expandtab = true
 
@@ -34,8 +36,5 @@ set.tabstop = 4
 set.autoindent = true
 set.smartindent = true
 
-
 --#region
 set.guifont = "JetBrains Mono:h10"
-
-
