@@ -3,6 +3,9 @@
 require((...) .. ".get_packer")
 
 local plugins = require("packer").startup(function(use)
+	--local plugins
+	use("/home/alper/nvim_plugins/nvim_plugin/lua/jupyter_test")
+
 	--packge manager
 	use("wbthomason/packer.nvim")
 
